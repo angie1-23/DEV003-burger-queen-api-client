@@ -1,2 +1,29 @@
-<p>home works!</p>
-<router-outlet></router-outlet>
+<app-template></app-template>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6" style="background-color:lavender;">
+			<p> Persona: {{nombre}}</p>
+			<p> Pedido: {{Pedido}}</p>
+			<div (keyup)='0' class="d-grid gap-2 d-md-block separate">
+				<button class="btn btn-light " type="button" (click)='ProductosDesayuno()'>Breakfast</button>
+				<button class="btn btn-light" type="button" (click)='ProductosLunchDinner()'>Lunch/Dinner</button>
+				<p *ngIf="mostrar">{{mensaje}}</p>
+				<div class="card">
+					<div class="card-body">
+						This is some text within a card body.
+					</div>
+				</div>
+				<input type="text" class='formControlName' (input)='capturarNombre($event)' #entrada />
+				{{entrada.value}}
+				{{nombreCliente}}
+			</div>
+		</div>
+		<div class="col-sm-6" style="background-color:azure;">
+			<p class="bg-danger">This text is important.</p>
+			<button class="btn btn-light " type="button" (click)='ProductosDesayuno()'>Breakfast</button>
+				<button class="btn btn-light" type="button" (click)='ProductosLunchDinner()'>Lunch/Dinner</button>
+			
+		</div>
+	</div>
+</div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',// detalle de una persona 
   templateUrl: './login.component.html',
@@ -14,6 +15,7 @@ export class LoginComponent {
   formUser = new  FormGroup({
     'email': new FormControl('',[Validators.required,Validators.email]),
     'password': new FormControl('', Validators.required),
+    
   })
 
   constructor(private router: Router){

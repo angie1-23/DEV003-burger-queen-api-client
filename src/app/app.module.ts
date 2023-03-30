@@ -8,13 +8,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TemplateComponent } from './template/template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    TemplateComponent
   ],
   imports: [
     BrowserModule,

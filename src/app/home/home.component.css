@@ -1,0 +1,22 @@
+/* .container{
+    margin-top: 10%;
+    height: 30em;
+    background-color: antiquewhite;
+   
+} */
+.container header{
+    margin: 0;
+    padding: 0;
+}
+
+.btn{
+    width:150px;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+}
+.bottonD{
+    justify-content: center;
+    display: flex;  
+    margin-top: 80px; 
+}
