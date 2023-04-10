@@ -13,9 +13,9 @@ export class AddNameComponent {
 
   name: string = '';
 
-  addnames(){
-    this.namesService.add(this.name); 
-    this.name = ''; // clean the input 
-  }
+  // addnames(){
+  //   this.namesService.add(this.name); 
+  //   this.name = ''; // clean the input 
+  // }
 
 }
