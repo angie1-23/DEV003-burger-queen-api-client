@@ -16,8 +16,13 @@ export class BtnBreakfastComponent {
 
   addToCart(product: Product) {
     this.namesService.addToCart(product);
+
     // window.alert('Your product has been added to the cart!');
   }
+
+  // clearCart(){
+  //   this.namesService.clearCart();
+  // }
 
   // share(){
   //   window.alert('The product has been shared!');

@@ -9,9 +9,13 @@
     <div class="row mt-3 mb-3">
         <div class="cart-item" *ngFor="let item of items">
             <span>{{ item.name }}</span>
-            <span>{{ item.price | currency }}</span>
+            <span>{{ item.price | currency }} </span>
+            <button type="button" class="close" aria-label="Remove Item" (click)="removeItemFromCart(item.id)">
+                <span aria-hidden="true">&times;</span>
+              </button>      
           </div>
-        
+					<span class="d-block">{{totalAmount| currency:'INR'}}</span>
+          
     </div>
 
     <div class="row mt-3 mb-5">
@@ -21,7 +25,7 @@
 
     <div class="row info">
         <!-- We are creating a service with the input data of add-name -->
-        <app-add-name></app-add-name>
-        <app-list-name></app-list-name>
+        <!-- <app-add-name></app-add-name>
+        <app-list-name></app-list-name> -->
     </div>
 </div>
