@@ -37,6 +37,7 @@ export class HomeComponent{
       }
     })
   }
+
   formatPrice(price: number) {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -56,5 +57,14 @@ export class HomeComponent{
     this.AddProductService.add(name);
     console.log('adding', this.products)
   }
+
+  // getTotalPrice() {
+  //   let total = 0;
+  //   this.products.map((item) => {
+  //     total += item.price;
+  //   });
+  //   console.log('Aqui',total)
+  //   return total;
+  // }
 
 }

@@ -13,7 +13,7 @@ import { AddNameComponent } from './add-name/add-name.component';
 import { ListNameComponent } from './list-name/list-name.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { CounterComponent } from './counter/counter.component';
-import { BillComponent } from './bill/bill.component';
+import { BillComponentx } from './bill/bill.component';
 import { NavComponent } from './nav/nav.component';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { NavComponent } from './nav/nav.component';
     ListNameComponent,
     KitchenComponent,
     CounterComponent,
-    BillComponent,
+    BillComponentx,
     NavComponent
 
   ],

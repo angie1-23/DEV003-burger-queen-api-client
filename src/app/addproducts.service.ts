@@ -21,6 +21,14 @@ export class AddProductService {
       }
     });
   }
+  // getTotalPrice() {
+  //   let total = 0;
+  //   this.products.map((item) => {
+  //     total += item.price;
+  //   });
+  //   console.log(total)
+  //   return total;
+  // }
 
   
 }
