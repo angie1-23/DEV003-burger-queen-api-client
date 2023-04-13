@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
+import { VigilanteGuard } from './guard/vigilante.guard';
 
 
 const routes: Routes = [{
@@ -13,6 +14,7 @@ const routes: Routes = [{
 {
   path: 'home', 
   component: HomeComponent,
+  canActivate:[VigilanteGuard]
 },
 {
   path: 'kitchen',
