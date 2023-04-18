@@ -16,7 +16,7 @@ export class BillComponent {
     public addProductService: AddProductService,
     private requestService: RequestService,
     private cookieService: CookieService,
-    private ordersServiceService:OrdersServiceService
+    private ordersServiceService: OrdersServiceService
   ) { }
   name: string = '';
   date: Date = new Date();
@@ -32,8 +32,8 @@ export class BillComponent {
     }, 0)
     return total
   }
-  
-  sendProducts(){
+
+  sendProducts() {
     this.date
     // const token = this.cookieService.get('accessToken');
     // const order = this.addProductService.products
@@ -42,40 +42,39 @@ export class BillComponent {
     console.log(this.addProductService.products, this.date)
   }
 
-  addnames(){
-    this.addProductService.addName(this.name); 
+  addnames() {
+    this.addProductService.addName(this.name);
     this.name = ''; // clean the input 
   }
-  
-  increment(){
-    this.addProductService.products.map((element)=>element.qty++)
+
+  increment() {
+    this.addProductService.products.map((element) => element.qty++)
   }
-  decrement(){
-    let productsNumber:any=0;
-    this.addProductService.products.forEach((element)=> {
-      if(element.qty-1 < 0){
+  decrement() {
+    let productsNumber: any = 0;
+    this.addProductService.products.forEach((element) => {
+      if (element.qty - 1 < 0) {
         // element.qty--
         return productsNumber;
       }
     })
-    }
-    public deleteProduct():void {
-      this.addProductService.products = this.addProductService.products.filter((product) => product.qty > 0 )
-    }
-
-    traerPedidos(){
-      // const ticket= order 
-      const ORDERS: Order = {
-        userId: localStorage.getItem('userId') || "[]",
-        client: this.name,
-        products: this.addProductService.products,
-        status: 'pending',
-        dataEntry: this.date,
-        total: this.totalPrice(),
-      };
-      this.ordersServiceService.postOrderService(ORDERS)
-      .subscribe(respuesta =>{
-        console.log('Aqui',respuesta)
-      })
-    }
   }
+  public deleteProduct(): void {
+    this.addProductService.products = this.addProductService.products.filter((product) => product.qty > 0)
+  }
+  traerPedidos() {
+    // const ticket= order 
+    const ORDERS: Order = {
+      userId: localStorage.getItem('userId') || "[]",
+      client: this.name,
+      products: this.addProductService.products,
+      status: 'pending',
+      dataEntry: this.date,
+      total: this.totalPrice(),
+    };
+    this.ordersServiceService.postOrderService(ORDERS)
+      .subscribe(respuesta => {
+        console.log('Aqui', respuesta)
+      })
+  }
+}

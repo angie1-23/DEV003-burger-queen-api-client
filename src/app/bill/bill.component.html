@@ -19,7 +19,7 @@
 					</button>
 					{{productObject.product.name}}
 					<div>
-						<button (click)="[productObject.qty = productObject.qty + 1, totalPrice()]"> + </button>
+						<button (click)="[productObject.qty = productObject.qty + 1,totalPrice()]"> + </button>
 						<input type="text" class="form-control" value="{{productObject.qty}}" />
 						<button (click)="[productObject.qty = productObject.qty - 1,deleteProduct(),totalPrice()]"> -
 						</button>
