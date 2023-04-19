@@ -4,10 +4,15 @@
     <!-- <img src={{ordernes.image}} width="100" class="mx-auto p-2 text-title" alt={{product.name}}> -->
     <div class="card-body">
         <h5 class="card-title">{{ordernes.client}}</h5>
+        <h5 class="card-title">{{ordernes.id}}</h5>
         <div class="card col" style="width: 14rem" *ngFor="let newProducts of ordernes.products">
             <h5 class="card-title">{{ordernes.client}}</h5>
             <h5 class="card-title">{{newProducts.product.name}}</h5>
         <!-- <button (click)="addProducts(product)" type="button" class="btn card-button">Add</button> -->
     </div>
+    <h5 class="card-title">{{ordernes.status}}</h5>
+    <button (click)="updatePedidos(ordernes.id, ordernes.dataEntry)"class="btn card-button mt-1 mb-1">
+        Done
+    </button>
 </div>
 <app-list-name></app-list-name>

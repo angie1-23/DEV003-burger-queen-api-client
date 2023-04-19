@@ -12,6 +12,10 @@ import { AddProductService } from '../servicios/addproducts.service';
 export class KitchenComponent {
 
   public listaOr: Order[]=[]
+  newPrducts = this.listaOr;
+  // dataChange: any = new Date();
+  date: Date = new Date();
+  // time= Math.round(((<any>new Date(this.dataChange).getTime()-(this. newPrducts).getTime()) /(1000*60))*100)/100;
 
   constructor(
     private ordersServiceService:OrdersServiceService,
@@ -28,4 +32,23 @@ export class KitchenComponent {
     })
   }
 
+  updatePedidos(id: any, dateEntry: any) {
+    // const ticket= order 
+
+    const time = this.date
+    let diaEnMils = 1000 * 60
+    let days = time.getTime() - new Date(dateEntry).getTime();
+    days = days / diaEnMils;
+    const ORDERS: Order = {
+      status: 'Delivered',
+      dateProcessed: time,
+      time: days
+    };
+
+    this.ordersServiceService.updateOrders(id,ORDERS)
+      .subscribe(respuesta => {
+        console.log('Aqui', respuesta)
+      })
+  }
+  
 }
