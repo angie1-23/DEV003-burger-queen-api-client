@@ -1,0 +1,67 @@
+<div class="row gap-2 row-cols-3">
+	<div class="card col" style="width: 14rem;" *ngFor="let product of filteredProducts">
+		<img src={{product.image}} width="100" class="mx-auto p-2" alt={{product.name}}>
+		<div class="card-body">
+			<h5 class="card-title">{{product.name}}</h5>
+			<p class="card-text">{{product.price | currency: "USD"}}</p>
+			<button (click)="modalSwitch = true" type="button" class="btn btn-primary">Edit</button>
+			<button (click)="[deleteProducts(product.id), getProducts()]" type="button"
+				class="btn btn-primary">Delete</button>
+		</div>
+	</div>
+</div>
+
+<ng-container *ngIf="modalSwitch === true"> 
+	<form #loginForm="ngForm" (ngSubmit)="updateData(loginForm.value, product.id)"*ngFor="let product of products">
+		<div class="main" >
+			<div class="input-fields" >
+				<input name="name" ngModel  placeholder="{{product.name}}" id="name" type="text" class="input-field" />
+			</div>
+			<div class="input-fields">
+				<input name="price" ngModel placeholder="{{product.price}}"  id="price" type="number" class="input-field" />
+			</div>
+			<div class="input-fields">
+				<input name="type" ngModel placeholder="{{product.type}}" id="type" type="text" class="input-field" />
+			</div>
+			<input type="url" class="form-control" formControlName="image" id="validateUrl" placeholder="Ingresa la url" />
+			<button (click)="updateData(loginForm.value, product.id)">Update Data </button>
+		</div>
+	</form> 
+	</ng-container>
+
+<!-- <ng-container *ngIf="modalSwitch === true">
+	<div class="modalContainer"  *ngFor="let item of products">
+		<form class="modalContent" #loginForm="ngForm" (ngSubmit)="[updateData(loginForm.value,item.id)]">
+			<label for=""> Product name :
+				<input  type="text" data-value="{{item.name}}">
+			</label>
+			<label for=""> Price :
+				<input type="text" data-value="{{item.price}}">
+			</label>
+			<label for=""> Type :
+				<input type="text" data-value="{{item.type}}">
+			</label>
+			<button type="submit">Save</button>
+			<button (click)="modalSwitch = false">X</button>
+		</form>
+	</div>
+</ng-container>  -->
+
+
+
+<!-- <div class="row gap-2 row-cols-3">
+		<div class="card col" style="width: 14rem;" *ngFor="let product of filteredProducts">
+			<img src={{product.image}} width="100" class="mx-auto p-2" alt={{product.name}}>
+			<div class="card-body">
+				<h5 class="card-title">{{product.name}}</h5>
+				<p class="card-text">{{product.price}}</p>
+				<button (click)="[addProducts(product), modalSwitch = true]"type="button" class="btn btn-primary">Edit</button>
+				<button (click)="[deleteProducts(product.id), getProducts()]" type="button" class="btn btn-primary">Delete</button>
+		</div>
+	</div>
+		 <ng-container  *ngIf="modalSwitch === true"> 
+			<div>
+			<app-modal></app-modal>
+		</div>
+	</ng-container>
+</div> -->

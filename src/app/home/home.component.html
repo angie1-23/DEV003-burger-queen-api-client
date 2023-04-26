@@ -17,7 +17,7 @@
 						<img src={{product.image}} width="100" class="mx-auto p-2 text-title" alt={{product.name}}>
 						<div class="card-body">
 							<h5 class="card-title">{{product.name}}</h5>
-							<p class="card-text">{{formatPrice(product.price)}}</p>
+							<p class="card-text">{{product.price | currency:'USD'}}</p>
 							<button (click)="addProducts(product)" type="button" class="btn card-button">Add</button>
 						</div>
 					</div>

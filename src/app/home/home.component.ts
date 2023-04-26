@@ -1,5 +1,5 @@
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { RequestService } from '../servicios/request.service';
 // import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -22,10 +22,10 @@ export class HomeComponent{
   ) {
     this.getProducts()
   }
-  @Input() item?: string;
 
   products: Array<Product> = []
   filteredProducts: Array<Product> = []
+
 
   getProducts(): void {
     const token = localStorage.getItem('accessToken');
@@ -38,13 +38,6 @@ export class HomeComponent{
       }
     })
   }
-  formatPrice(price: number) {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(price);
-  }
-
   filterByFoodType(type: string) {
     if (type === "all") {
       this.filteredProducts = this.products

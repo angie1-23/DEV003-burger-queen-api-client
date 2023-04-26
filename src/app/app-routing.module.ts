@@ -8,8 +8,15 @@ import { OrdersComponent } from './orders/orders.component';
 import { BlockRoutesGuard } from './block-routes.guard';
 import { OrdersDeliveredComponent } from './orders-delivered/orders-delivered.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 
-const routes: Routes = [{
+const routes: Routes = [
+{
+  path: '',
+  redirectTo: '/login',
+  pathMatch: 'full'
+},
+{
   path: 'login',
   component: LoginComponent
 },
@@ -35,13 +42,10 @@ const routes: Routes = [{
 },
 {
   path: 'admin',
-  component: AdminComponent,
-  canActivate: [BlockRoutesGuard]
-},
-{
-  path: '',
-  redirectTo: '/login',
-  pathMatch: 'full'
+  component: AdminComponent,canActivate: [BlockRoutesGuard],
+  children: [
+    { path: 'admin-products', component: AdminProductsComponent}],
+
 },
 {
   path: '**',
