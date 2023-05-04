@@ -48,3 +48,7 @@
 .card-title{
 	font-weight: bolder;
 }
+.nav-link {
+    font-weight: bold;
+    cursor: pointer;
+  }

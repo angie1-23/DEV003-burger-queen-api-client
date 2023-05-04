@@ -1,10 +1,11 @@
 
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import { RequestService } from '../servicios/request.service';
-// import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import type { Product } from 'src/types';
 import { AddProductService  } from '../servicios/addproducts.service';
+import { faBurger } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { AddProductService  } from '../servicios/addproducts.service';
 export class HomeComponent{ 
   constructor(
     private requestService: RequestService,
-    // private router: Router,
+    private router: Router,
     private cookieService: CookieService,
     public AddProductService : AddProductService 
   ) {
@@ -25,6 +26,7 @@ export class HomeComponent{
   //@Input() item?: string;
   products: Array<Product> = []
   filteredProducts: Array<Product> = []
+  faBurger = faBurger;
 
   getProducts(): void {
     const token = localStorage.getItem('accessToken');
@@ -55,6 +57,11 @@ export class HomeComponent{
   addProducts(name:Product) {
     this.AddProductService.add(name);
     console.log('adding', this.AddProductService.products)
+  }
+
+  handleLogout() {
+    this.cookieService.delete('accessToken')
+    this.router.navigate(['login'])
   }
 
 }

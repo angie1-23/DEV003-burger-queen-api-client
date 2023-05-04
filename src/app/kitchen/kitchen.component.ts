@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { OrdersServiceService } from '../servicios/orders.service.service';
 import { Order } from 'src/types';
 import { AddProductService } from '../servicios/addproducts.service';
+import { Router } from '@angular/router';
+import { faBurger } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -17,11 +19,13 @@ export class KitchenComponent {
   // dataChange: any = new Date();
   date: Date = new Date();
   public isButtonVisible = true;
+  faBurger = faBurger;
 
 
   constructor(
     private ordersServiceService: OrdersServiceService,
-    public addProductService: AddProductService
+    public addProductService: AddProductService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -58,6 +62,11 @@ export class KitchenComponent {
     //   }
     //  this.isButtonVisible
     // this.isButtonVisible = false
+  }
+
+  handleLogout() {
+    localStorage.getItem('accessToken')
+    this.router.navigate(['login'])
   }
 
 

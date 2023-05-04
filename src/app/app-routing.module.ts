@@ -31,7 +31,7 @@ const routes: Routes = [{
   // canActivate: [BlockRoutesGuard]
 },
 {
-  path: 'orders delivered',
+  path: 'orders/delivered',
   component: OrdersDeliveredComponent,
   // canActivate: [BlockRoutesGuard]
 },

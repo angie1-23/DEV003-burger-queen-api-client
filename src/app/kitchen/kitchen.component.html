@@ -1,5 +1,27 @@
 <div class="mainContainer">
-	<app-nav></app-nav>
+	<!-- <router-outlet></router-outlet> -->
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<a class="navbar-brand fw-bold" href="#"> <fa-icon [icon]="faBurger"></fa-icon>
+				Burger Queen</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+				<ul class="navbar-nav gap-3">
+					<li class="nav-item">
+						<a class="nav-link" routerLink="/kitchen" routerLinkActive="active"> Cook </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" routerLinkActive="active" (click)="handleLogout()"> Log Out
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
 	<div class="containerkitchen d-flex justify-content-center">
 
 		<div class="card text-center" *ngFor="let orders of listaOr">
@@ -28,8 +50,7 @@
 				<tr>
 					<td colspan="2">
 						<ng-container *ngIf="orders.status === 'pending'">
-							<button type="button" id="orders.id"
-								(click)="[updateOrdesM(orders.id, orders.dataEntry),getOrdersM()]"
+							<button type="button" id="orders.id" (click)="[updateOrdesM(orders.id, orders.dataEntry),getOrdersM()]"
 								class="card-button mt-1 mb-1">
 								ORDER READY
 							</button>
